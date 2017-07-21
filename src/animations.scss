@@ -1,0 +1,40 @@
+.todoapp {
+    &.todoapp-appear {
+        transition: transform 500ms;
+
+        transform: scale(0);
+    }
+    &.todoapp-appear-active {
+        transform: scale(1);
+    }
+}
+
+h1{
+    &.logo-appear{
+        transition: 500ms transform 500ms;
+        transform: rotate(360deg);
+    }
+    &.logo-appear-active {
+        transform: rotate(0);
+    }
+}
+
+.todo-list {
+    .todo-enter, .todo-leave{
+        transition: all 500ms;
+        overflow: hidden;
+    }
+    .todo-enter{
+        height: 0px;
+        &.todo-enter-active {
+            
+        }
+    }
+    .todo-leave {
+        height: 59px;
+        &.todo-leave-active {
+            height: 0px;
+        }
+    }
+     
+}

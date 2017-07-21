@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import Todo from "./todo.component";
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 class TodoList extends React.Component {
     render(){
@@ -17,7 +18,13 @@ class TodoList extends React.Component {
 
         return (
             <ul className="todo-list">
+                <CSSTransitionGroup
+                transitionName="todo"
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={500}
+                >   
                 { todos.map(model => <li key={model.id}><Todo {...model}/></li>) }
+                </CSSTransitionGroup>
             </ul>
         )
     }
@@ -30,3 +37,4 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps, null)(TodoList);
+

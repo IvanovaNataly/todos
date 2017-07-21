@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {addTodo, setAllTodoCompleted, sendError} from "./actions";
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 class AddTodo extends React.Component {
 
@@ -14,7 +15,15 @@ class AddTodo extends React.Component {
     render(){
         return (
             <header className="header">
-                <h1>roy's todos</h1>
+                <CSSTransitionGroup
+                transitionName="logo"
+                transitionEnter={false}
+                transitionLeave={false}
+                transitionAppear={true}
+                transitionAppearTimeout={1000}
+                >
+                    <h1>roy's todos</h1>
+                </CSSTransitionGroup>
                 <form onSubmit={ (e) => this.addTodo(e) }>
                     <input className="new-todo" placeholder="What needs to be done?" type="text" ref={ el => this.input = el }/>
                 </form>
